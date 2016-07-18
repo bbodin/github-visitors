@@ -4,6 +4,7 @@ Tool to retrieve visitors count from github, to store it, and to plot it.
 
 ## Usage
 
+```
 usage: github-visitors.py [-h] --username USERNAME --repository REPOSITORY
                           [--password PASSWORD] [--archive ARCHIVE] [--plot]
 
@@ -17,7 +18,7 @@ optional arguments:
   --password PASSWORD   Not recommanded, if not set, it will be asked.
   --archive ARCHIVE     file where to load and save data.
   --plot                A plot will be generate if set.
-
+```
 
 ## Example
 
