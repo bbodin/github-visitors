@@ -1,10 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 
-import urllib2
-import urllib
 import re
-import cookielib,Cookie
+
 import getpass
 import ast
 import time
@@ -18,11 +16,11 @@ import json
 import pprint
 
 
-print ""
-print "*********************************"
-print "** GitHub data retrieving tool **"
-print "*********************************"
-print ""
+print ("")
+print ("*********************************")
+print ("** GitHub data retrieving tool **")
+print ("*********************************")
+print ("")
 
 
 
@@ -48,8 +46,8 @@ else :
 
 
 
-print ""
-print "Initialisation..."
+print ("")
+print ("Initialisation...")
 
 '''
 Load previous data
@@ -62,19 +60,19 @@ if archive :
         ark =  open(archive, 'rw+')
         previous = ark.read()
         data = ast.literal_eval(previous)
-        print "Load archive file '%s'." %archive
-        print "Contained %d elements" % len(data.keys())
+        print ("Load archive file '%s'." %archive)
+        print ("Contained %d elements" % len(data.keys()))
     except :
-        print "Read-only operation failed on the archive file '%s'." %archive
+        print ("Read-only operation failed on the archive file '%s'." %archive)
 
 if not isinstance(data, dict):
-    print "Archive Error"
+    print ("Archive Error")
     exit(1)
 
 
 for key in data.keys() :
     if not isinstance(key, int): 
-        print "INVALID DATA"
+        print ("INVALID DATA")
         exit(1)
 
         
@@ -129,7 +127,7 @@ r = requests.get('https://api.github.com/repos/%s/traffic/popular/referrers?acce
 if(r.ok):
     repoItem = json.loads(r.text or r.content)
     for f in repoItem :
-        print f["count"] , f["referrer"]
+        print (f["count"] , f["referrer"])
 else :
     print ("Error")
 
@@ -152,19 +150,19 @@ if plot :
     plt.show()
 
 else :
-    print ""
-    print ""
-    print data
-    print ""
+    print ("")
+    print ("")
+    print (data)
+    print ("")
     
     
 if archive :
-    print ""
-    print "Save data."
+    print ("")
+    print ("Save data.")
     ark =  open(archive, 'w')
     data_str = str(data)
     ark.write(data_str)
     ark.close()
-    print "Saved."
+    print ("Saved.")
     
-print ""
+print ("")
