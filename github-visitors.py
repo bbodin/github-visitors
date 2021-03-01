@@ -57,7 +57,7 @@ data = {}
 
 if archive :
     try :
-        ark =  open(archive, 'rw+')
+        ark =  open(archive)
         previous = ark.read()
         data = ast.literal_eval(previous)
         print ("Load archive file '%s'." %archive)
